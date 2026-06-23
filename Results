@@ -1,0 +1,86 @@
+Results:
+
+Calculating WoE and IV for features...
+
+===============================================================================================
+❖ MASTER BINS, WEIGHT OF EVIDENCE (WoE), AND INFORMATION VALUE (IV) MATRIX ❖
+===============================================================================================
+              Feature    Bin/Category  No Loan (Non-Events)  Took Loan (Events)  Total  WoE Value  Bin IV Contribution  Total Feature IV
+       Age (in years)  (22.999, 34.0]                  1005                 118   1123    -0.1004               0.0024            0.0048
+       Age (in years)    (34.0, 42.0]                   911                  88    999     0.0947               0.0017            0.0048
+       Age (in years)    (42.0, 50.0]                   908                 100   1008    -0.0364               0.0003            0.0048
+       Age (in years)    (50.0, 57.0]                   835                  86    921     0.0306               0.0002            0.0048
+       Age (in years)    (57.0, 67.0]                   861                  88    949     0.0383               0.0003            0.0048
+Experience (in years)   (-0.001, 8.0]                   918                 106   1024    -0.0837               0.0015            0.0020
+Experience (in years)    (17.0, 24.0]                   844                  88    932     0.0183               0.0001            0.0020
+Experience (in years)    (24.0, 32.0]                   947                 100   1047     0.0056               0.0000            0.0020
+Experience (in years)    (32.0, 43.0]                   815                  84    899     0.0299               0.0002            0.0020
+Experience (in years)     (8.0, 17.0]                   996                 102   1098     0.0363               0.0003            0.0020
+  Income (in K/month)  (113.0, 224.0]                   583                 396    979    -1.8557               1.2916            4.2352
+  Income (in K/month)    (33.0, 52.0]                   973                   0    973     5.3311               1.1420            4.2352
+  Income (in K/month)    (52.0, 78.0]                  1010                   7   1017     2.7293               0.5701            4.2352
+  Income (in K/month)   (7.999, 33.0]                  1029                   0   1029     5.3870               1.2208            4.2352
+  Income (in K/month)   (78.0, 113.0]                   925                  77   1002     0.2435               0.0108            4.2352
+       Family members             1.0                  1358                 106   1464     0.3078               0.0245            0.0669
+       Family members             2.0                  1186                 106   1292     0.1724               0.0072            0.0669
+       Family members             3.0                   876                 133   1009    -0.3575               0.0298            0.0669
+       Family members             4.0                  1084                 133   1217    -0.1444               0.0054            0.0669
+       Family members           Blank                    16                   2     18    -0.1630               0.0001            0.0669
+                CCAvg   (-0.001, 0.5]                  1047                  29   1076     1.3439               0.2301            1.6072
+                CCAvg      (0.5, 1.2]                   955                  33    988     1.1227               0.1600            1.6072
+                CCAvg      (1.2, 1.9]                   965                  30    995     1.2284               0.1855            1.6072
+                CCAvg      (1.9, 2.8]                   938                  47    985     0.7511               0.0823            1.6072
+                CCAvg     (2.8, 10.0]                   615                 341    956    -1.6527               0.9493            1.6072
+            Education               1                  2003                  93   2096     0.8273               0.2063            0.2992
+            Education               2                  1221                 182   1403    -0.3391               0.0370            0.2992
+            Education               3                  1296                 205   1501    -0.3985               0.0559            0.2992
+             Mortgage (-0.001, 123.0]                  3671                 337   4008     0.1457               0.0160            0.0668
+             Mortgage  (123.0, 635.0]                   849                 143    992    -0.4613               0.0508            0.0668
+   Securities Account               0                  4058                 420   4478     0.0257               0.0006            0.0052
+   Securities Account               1                   462                  60    522    -0.2013               0.0046            0.0052
+           CD Account               0                  4358                 340   4698     0.3083               0.0789            0.6152
+           CD Account               1                   162                 140    302    -2.0965               0.5363            0.6152
+               Online               0                  1827                 189   2016     0.0262               0.0003            0.0005
+               Online               1                  2693                 291   2984    -0.0174               0.0002            0.0005
+           CreditCard               0                  3193                 337   3530     0.0062               0.0000            0.0001
+           CreditCard               1                  1327                 143   1470    -0.0146               0.0001            0.0001
+
+========== FEATURE SELECTION SUMMARY ==========
+Income (in K/month)       | Total IV: 4.2352 | Status: SELECTED
+CCAvg                     | Total IV: 1.6072 | Status: SELECTED
+CD Account                | Total IV: 0.6152 | Status: SELECTED
+Education                 | Total IV: 0.2992 | Status: SELECTED
+Family members            | Total IV: 0.0669 | Status: DROPPED (IV <= 0.1)
+Mortgage                  | Total IV: 0.0668 | Status: DROPPED (IV <= 0.1)
+Securities Account        | Total IV: 0.0052 | Status: DROPPED (IV <= 0.1)
+Age (in years)            | Total IV: 0.0048 | Status: DROPPED (IV <= 0.1)
+Experience (in years)     | Total IV: 0.0020 | Status: DROPPED (IV <= 0.1)
+Online                    | Total IV: 0.0005 | Status: DROPPED (IV <= 0.1)
+CreditCard                | Total IV: 0.0001 | Status: DROPPED (IV <= 0.1)
+
+========== MODEL PERFORMANCE (USING SELECTED FEATURE WoE) ==========
+AUC-ROC  : 0.9690
+Gini     : 0.9380
+KS Stat  : 0.8106
+Accuracy : 0.9680
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.99      0.98       904
+           1       0.86      0.80      0.83        96
+
+    accuracy                           0.97      1000
+   macro avg       0.92      0.89      0.91      1000
+weighted avg       0.97      0.97      0.97      1000
+
+
+--- Enter New Customer Details ---
+What is your income (in K/Month)? 120
+What is your CCAvg? 2
+What is your education level? (school/university/masters): higher
+CD Account? (yes/no): y
+
+========== INDIVIDUAL PREDICTION RESULT ==========
+Probability of taking a personal loan : 0.9607 (96.1%)
+Prediction (0=No Loan, 1=Loan)        : 1
