@@ -14,7 +14,7 @@ from sklearn.metrics import (
 )
 
 #LOAD DATA
-df = pd.read_csv('/Users/work/Desktop/HDFC CODE/TheraBank.csv')
+df = pd.read_csv('TheraBank.csv')
 target = 'Personal Loan'
 
 # Clean column names (strip trailing spaces if any)
